@@ -9,6 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @interface MainViewController : UIViewController
-@property (nonatomic, weak) IBOutlet UILabel *questionLabel;
+
+@property (nonatomic) int indexCount;
+@property (nonatomic, strong) NSArray *questions;
+@property (nonatomic, strong) NSArray *answers;
+
+@property (nonatomic, strong) IBOutlet UILabel *questionLabel;
+@property (nonatomic, strong) IBOutlet UILabel *answerLabel;
 
 @end
