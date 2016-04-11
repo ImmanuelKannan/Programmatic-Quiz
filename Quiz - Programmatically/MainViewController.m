@@ -13,6 +13,7 @@
 @end
 
 @implementation MainViewController
+@synthesize nextQuestionButton, showAnswerButton;
 
 #pragma mark - Initializer
 - (instancetype) init {
@@ -35,7 +36,7 @@
 
 #pragma mark - Touch Events
 - (IBAction) nextQuestionButtonPressed: (id) sender {
-    NSLog(@"Button Pressed");
+    NSLog(@"nextQuestionButton Pressed");
    
     _indexCount++;
     
@@ -47,7 +48,9 @@
 }
 
 - (IBAction) showAnswerButtonPressed: (id) sender {
+    NSLog(@"showAnswerButtonPressed");
     
+    _answerLabel.text = _answers[_indexCount];
 }
 
 #pragma mark - View Methods
@@ -65,16 +68,16 @@
     _questionLabel.backgroundColor = [UIColor redColor];
     _answerLabel.backgroundColor = [UIColor blueColor];
     
-    //Code to create the "Next Question" Button
-    UIButton *nextQuestionButton = [UIButton buttonWithType: UIButtonTypeSystem];
+    //Code to initialize the "Next Question" Button
+    nextQuestionButton = [UIButton buttonWithType: UIButtonTypeSystem];
     nextQuestionButton.frame = CGRectMake(105, 190, 110, 30);
     [nextQuestionButton setTitle:@"Next Question" forState:UIControlStateNormal];
     [nextQuestionButton addTarget:self
                            action:@selector(nextQuestionButtonPressed:)
                  forControlEvents:UIControlEventTouchUpInside];
     
-    //Code to create the "Show Answer" Button
-    UIButton *showAnswerButton = [UIButton buttonWithType: UIButtonTypeSystem];
+    //Code to initialize the "Show Answer" Button
+    showAnswerButton = [UIButton buttonWithType: UIButtonTypeSystem];
     showAnswerButton.frame = CGRectMake(105, 390, 110, 30);
     [showAnswerButton setTitle:@"Show Answer" forState:UIControlStateNormal];
     [showAnswerButton addTarget:self
